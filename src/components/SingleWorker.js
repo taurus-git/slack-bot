@@ -19,9 +19,9 @@ class SingleWorker extends Component {
 
         return (
             /*<h3>{`${name} ${surname} ${congratulationMessage}`}</h3>*/
-            <p onClick={this.handleClick(username)}>
+            <li onClick={this.handleClick(username)}>
                 {`${name} ${surname} ${congratulationMessage}`}
-            </p>
+            </li>
         );
     }
 }

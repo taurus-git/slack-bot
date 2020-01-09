@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {database} from './firebase';
 import './SingleWorker.css';
-/*import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css'*/
 
 class NewWorker extends Component{
     constructor(props) {
@@ -12,11 +10,9 @@ class NewWorker extends Component{
             name: '',
             surname: '',
             congratulationMessage: '',
-            startDate: new Date(),
         };
 
         this.handleChange = this.handleChange.bind(this);
-        /*this.handleSelect = this.handleSelect.bind(this);*/
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.dataRef = database.ref('/workers');
@@ -33,10 +29,6 @@ class NewWorker extends Component{
             startDate: date
         })
     };
-
-   /* handleSelect(event){
-        console.log("Element Selected")
-    }*/
 
     handleSubmit(event){
         event.preventDefault();
@@ -82,13 +74,6 @@ class NewWorker extends Component{
                            placeholder={"workers's surname"}
                        />
                    </label>
-
-                   {/*<DatePicker
-                       selected={this.state.date}
-                       /*onSelect={this.handleSelect}*/
-                       /*onChange={this.handleChangeDate}*/
-                   /*/>*/}
-
                    <textarea
                        name={"congratulationMessage"}
                        value={this.state.textarea}

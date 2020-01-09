@@ -26,15 +26,7 @@ class App extends React.Component{
                 this.setState({ workers:  snapshot.val() });
             });
         });
-
-        this.dataRef.on('value', (snapshot) => {
-           this.setState({
-               data: snapshot.val()
-           });
-        });
     }
-
-
 
     render() {
         const { currentUser, workers } = this.state;
