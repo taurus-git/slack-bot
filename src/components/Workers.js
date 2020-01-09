@@ -13,9 +13,9 @@ class Workers extends Component {
         return (
             <div>
                 <h2>Workers list:</h2>
-                <section>
+                <ul>
                     { map(workers, (worker, key) => <SingleWorker key={key} {...worker} />) }
-                </section>
+                </ul>
             </div>
         );
     }
