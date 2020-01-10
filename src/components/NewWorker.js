@@ -9,6 +9,8 @@ class NewWorker extends Component{
             username: '',
             name: '',
             surname: '',
+            bday: '',
+            firstWorkingDay: '',
             congratulationMessage: '',
         };
 
@@ -26,10 +28,6 @@ class NewWorker extends Component{
 
     handleSubmit(event){
         event.preventDefault();
-        /*this.dataRef
-            .child(this.state.username)
-            .child("name")
-            .set(this.state.name)*/
         this.dataRef.doc().set(this.state)
     }
 
@@ -68,6 +66,24 @@ class NewWorker extends Component{
                            placeholder={"workers's surname"}
                        />
                    </label>
+                   <label>
+                       Worker's Birth Day date:
+                       <input
+                           name={"bday"}
+                           type="date"
+                           value={this.state.bday}
+                           onChange={this.handleChange}
+                       />
+                   </label>
+                   <label>
+                       Worker's First Day at Hyperion:
+                       <input
+                           name={"firstWorkingDay"}
+                           type="date"
+                           value={this.state.firstWorkingDay}
+                           onChange={this.handleChange}
+                       />
+                   </label>
                    <textarea
                        name={"congratulationMessage"}
                        value={this.state.textarea}
@@ -77,7 +93,6 @@ class NewWorker extends Component{
                        rows="10"
                    >
                    </textarea>
-
                    <input type='submit' />
                </form>
            </div>
