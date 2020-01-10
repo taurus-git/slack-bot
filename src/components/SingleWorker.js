@@ -9,7 +9,7 @@ class SingleWorker extends Component {
 
     handleClick (username){
         return function(){
-            console.log(username);
+            //console.log(username);
         };
 
     }

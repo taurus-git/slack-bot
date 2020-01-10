@@ -15,7 +15,7 @@ class NewWorker extends Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
-        this.dataRef = database.ref('/workers');
+        this.dataRef = database.collection('/workers');
     }
 
     handleChange(event){
@@ -24,19 +24,13 @@ class NewWorker extends Component{
         });
     }
 
-    handleChangeDate = date => {
-        this.setState({
-            startDate: date
-        })
-    };
-
     handleSubmit(event){
         event.preventDefault();
         /*this.dataRef
             .child(this.state.username)
             .child("name")
             .set(this.state.name)*/
-        this.dataRef.push(this.state);
+        this.dataRef.doc().set(this.state)
     }
 
     render() {
