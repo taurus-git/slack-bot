@@ -15,20 +15,32 @@ class App extends React.Component{
             workers: null,
         };
 
-        this.dataRef = database.ref('/workers');
+        this.dataRef = database.collection('/workers');
     }
 
     componentDidMount() {
         auth.onAuthStateChanged((currentUser) => {
             this.setState({ currentUser });
-
-            this.dataRef.on('value', (snapshot) => {
-                this.setState({ workers:  snapshot.val() });
-            });
         });
+
+        var citiesRef = this.dataRef;
+        var allCities = citiesRef
+            .get()
+            .then(snapshot => {
+                snapshot.forEach(doc => {
+                    this.setState({ workers  : doc.id} );
+                    //console.log(doc.id, '=>', doc.data());
+                });
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
     }
 
+
+
     render() {
+        console.log(this.state);
         const { currentUser, workers } = this.state;
 
         return (
