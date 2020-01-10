@@ -12,7 +12,7 @@ class App extends React.Component{
             data: null,
             newData: '',
             currentUser: null,
-            workers: null,
+            workers: [],
         };
 
         this.dataRef = database.collection('/workers');
@@ -23,13 +23,13 @@ class App extends React.Component{
             this.setState({ currentUser });
         });
 
-        var citiesRef = this.dataRef;
-        var allCities = citiesRef
+        //TODO: Change this request because we don't have live upload when we add new worker
+        var db = this.dataRef;
+        var allWorkers = db
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
-                    this.setState({ workers  : doc.id} );
-                    //console.log(doc.id, '=>', doc.data());
+                    this.setState({ workers : [...this.state.workers, doc.data()]} );
                 });
             })
             .catch(err => {
@@ -37,10 +37,7 @@ class App extends React.Component{
             });
     }
 
-
-
     render() {
-        console.log(this.state);
         const { currentUser, workers } = this.state;
 
         return (
@@ -50,17 +47,9 @@ class App extends React.Component{
                     currentUser &&
                     <div>
                         <NewWorker />
-
                         <CurrentUser user={currentUser} />
-
                         <hr/>
-
                         <Workers workers={workers} />
-
-                        {/*<h2>Workers list</h2>
-                        <pre>
-                            { JSON.stringify(this.state.data, null , 2) }
-                        </pre>*/}
                     </div>
                 }
             </div>

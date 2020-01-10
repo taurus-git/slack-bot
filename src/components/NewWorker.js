@@ -31,7 +31,6 @@ class NewWorker extends Component{
             .child("name")
             .set(this.state.name)*/
         this.dataRef.doc().set(this.state)
-
     }
 
     render() {
