@@ -15,6 +15,7 @@ class NewWorker extends Component{
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handleDateChange = this.handleDateChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
 
         this.dataRef = database.collection('/workers');
@@ -24,6 +25,15 @@ class NewWorker extends Component{
         this.setState({
             [event.target.name]: event.target.value
         });
+    }
+
+    handleDateChange(event){
+        event.preventDefault();
+        const timestamp = new Date(event.target.value);
+
+        this.setState({
+            [event.target.name]: timestamp
+        })
     }
 
     handleSubmit(event){
@@ -72,7 +82,7 @@ class NewWorker extends Component{
                            name={"bday"}
                            type="date"
                            value={this.state.bday}
-                           onChange={this.handleChange}
+                           onChange={this.handleDateChange}
                        />
                    </label>
                    <label>
@@ -81,7 +91,7 @@ class NewWorker extends Component{
                            name={"firstWorkingDay"}
                            type="date"
                            value={this.state.firstWorkingDay}
-                           onChange={this.handleChange}
+                           onChange={this.handleDateChange}
                        />
                    </label>
                    <textarea
