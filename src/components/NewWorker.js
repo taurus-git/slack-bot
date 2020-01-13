@@ -29,7 +29,7 @@ class NewWorker extends Component{
 
     handleDateChange(event){
         event.preventDefault();
-        let timestamp = new Date(event.target.value);
+        const timestamp = new Date(event.target.value);
 
         this.setState({
             [event.target.name]: timestamp
