@@ -7,14 +7,22 @@ class Workers extends Component {
         super(props);
     }
 
+    handleDelete = () => {
+        console.log("Button Clicked!")
+    };
+
     render() {
         const { workers } = this.props;
-
+        console.log("workers :", workers);
         return (
             <div>
                 <h2>Workers list:</h2>
                 <ul>
-                    { map(workers, (worker, key) => <SingleWorker key={key} {...worker} />) }
+                    { map(workers, (worker, key) =>
+                        <SingleWorker
+                            key={key} {...worker}
+                        />)
+                    }
                 </ul>
             </div>
         );

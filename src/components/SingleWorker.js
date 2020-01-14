@@ -6,11 +6,12 @@ class SingleWorker extends Component {
     }
 
     render() {
-        const { username, name, surname, congratulationMessage } = this.props;
-
+        const { username, name, surname, congratulationMessage, id } = this.props;
+        //console.log(this.props);
         return (
             <li>
-                {`${username} ${name} ${surname} ${congratulationMessage}`}
+                {`${id} ${username} ${name} ${surname} ${congratulationMessage}`}
+                {/*<button onClick={this.props.onDelete(this.props.id)}>Delete</button>*/}
             </li>
         );
     }
