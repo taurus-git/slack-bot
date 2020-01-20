@@ -7,14 +7,23 @@ class Workers extends Component {
         super(props);
     }
 
+    handleDelete = () => {
+        //alert("onDelete func works!")
+    };
+
     render() {
         const { workers } = this.props;
-
+        //console.log(workers[0].id);
         return (
             <div>
                 <h2>Workers list:</h2>
                 <ul>
-                    { map(workers, (worker, key) => <SingleWorker key={key} {...worker} />) }
+                    { map(workers, (worker, key) =>
+                        <SingleWorker
+                            key={key} {...worker}
+                            onDelete={this.handleDelete}
+                        />)
+                    }
                 </ul>
             </div>
         );
@@ -22,7 +31,7 @@ class Workers extends Component {
 }
 
 Workers.propTypes = {
-    user: PropTypes,
+    user: PropTypes.object,
     workersRef: PropTypes.object,
     workers: PropTypes.object
 };

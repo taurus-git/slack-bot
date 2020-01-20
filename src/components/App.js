@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { auth, database } from './firebase';
 import SignIn from './SignIn';
 import CurrentUser from './CurrentUser';
@@ -29,7 +30,15 @@ class App extends React.Component{
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
-                    this.setState({ workers : [...this.state.workers, doc.data()]} );
+                    let worker = {
+                        id: doc.id,
+                        username: doc.data().username,
+                        name: doc.data().name,
+                        surname: doc.data().surname,
+                        congratulationMessage: doc.data().congratulationMessage,
+                    };
+
+                    this.setState( {workers : [...this.state.workers, worker] });
                 });
             })
             .catch(err => {
