@@ -36,6 +36,10 @@ class NewWorker extends Component{
         })
     }
 
+    sendDateInString(date){
+        let dateString = date;
+    }
+
     handleSubmit(event){
         event.preventDefault();
         this.dataRef.doc().set(this.state)
@@ -81,7 +85,7 @@ class NewWorker extends Component{
                        <input
                            name={"bday"}
                            type="date"
-                           value={this.state.bday}
+                           value={this.sendDateInString(this.state.bday)}
                            onChange={this.handleDateChange}
                        />
                    </label>
@@ -90,7 +94,7 @@ class NewWorker extends Component{
                        <input
                            name={"firstWorkingDay"}
                            type="date"
-                           value={this.state.firstWorkingDay}
+                           value={this.sendDateInString(this.state.firstWorkingDay)}
                            onChange={this.handleDateChange}
                        />
                    </label>
