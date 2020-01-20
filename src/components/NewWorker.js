@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {database} from './firebase';
 import './SingleWorker.css';
+import Textarea from "./form_fields/Textarea";
 
 class NewWorker extends Component{
     constructor(props) {
@@ -11,7 +12,8 @@ class NewWorker extends Component{
             surname: '',
             bday: '',
             firstWorkingDay: '',
-            congratulationMessage: '',
+            birthdayMessage: '',
+            anniversaryMessage: '',
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -80,33 +82,45 @@ class NewWorker extends Component{
                            placeholder={"workers's surname"}
                        />
                    </label>
-                   <label>
-                       Worker's Birth Day date:
-                       <input
-                           name={"bday"}
-                           type="date"
-                           value={this.sendDateInString(this.state.bday)}
-                           onChange={this.handleDateChange}
+                   <fieldset>
+                       <legend>Worker's Birth Day date:</legend>
+                       <label>
+                           <input
+                               name={"bday"}
+                               type="date"
+                               value={this.sendDateInString(this.state.bday)}
+                               onChange={this.handleDateChange}
+                           />
+                       </label>
+
+                       <Textarea
+                           name={"birthdayMessage"}
+                           value={this.state.birthdayMessage}
+                           onChange={this.handleChange}
+                           placeholder={"BD congratulation text"}
+                           cols="60"
+                           rows="5"
                        />
-                   </label>
-                   <label>
-                       Worker's First Day at Hyperion:
-                       <input
-                           name={"firstWorkingDay"}
-                           type="date"
-                           value={this.sendDateInString(this.state.firstWorkingDay)}
-                           onChange={this.handleDateChange}
+                   </fieldset>
+                   <fieldset>
+                       <legend>Worker's First Day at Hyperion:</legend>
+                       <label>
+                           <input
+                               name={"firstWorkingDay"}
+                               type="date"
+                               value={this.sendDateInString(this.state.firstWorkingDay)}
+                               onChange={this.handleDateChange}
+                           />
+                       </label>
+                       <Textarea
+                           name={"anniversaryMessage"}
+                           value={this.state.anniversaryMessage}
+                           onChange={this.handleChange}
+                           placeholder={"congratulation text"}
+                           cols="60"
+                           rows="5"
                        />
-                   </label>
-                   <textarea
-                       name={"congratulationMessage"}
-                       value={this.state.textarea}
-                       onChange={this.handleChange}
-                       placeholder={"congratulation text"}
-                       cols="30"
-                       rows="10"
-                   >
-                   </textarea>
+                   </fieldset>
                    <input type='submit' />
                </form>
            </div>

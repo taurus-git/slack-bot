@@ -35,7 +35,8 @@ class App extends React.Component{
                         username: doc.data().username,
                         name: doc.data().name,
                         surname: doc.data().surname,
-                        congratulationMessage: doc.data().congratulationMessage,
+                        birthdayMessage: doc.data().birthdayMessage,
+                        anniversaryMessage: doc.data().anniversaryMessage,
                     };
 
                     this.setState( {workers : [...this.state.workers, worker] });
