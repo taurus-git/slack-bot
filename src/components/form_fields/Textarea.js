@@ -7,6 +7,7 @@ class Textarea extends Component {
         this.state = {
             name: '',
             value: '',
+            disabled: '',
             placeholder: '',
             onChange: '',
             cols: '',
@@ -16,12 +17,13 @@ class Textarea extends Component {
 
 
     render() {
-        const {name, value, placeholder, onChange, cols, rows} = this.props;
+        const {name, value, disabled, placeholder, onChange, cols, rows} = this.props;
 
         return (
             <textarea
                 name={name}
                 value={value}
+                disabled={disabled}
                 placeholder={placeholder}
                 onChange={onChange}
                 cols={cols}
@@ -39,6 +41,7 @@ Textarea.defaultProps = {
 Textarea.propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.any,
+    disabled: PropTypes.string,
     onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string.isRequired,
 };

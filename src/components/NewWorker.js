@@ -15,6 +15,7 @@ class NewWorker extends Component {
             firstWorkDay: '',
             birthdayMessage: '',
             anniversaryMessage: '',
+            disabled: '',
         };
 
         this.dataRef = database.collection('/workers');
@@ -45,7 +46,18 @@ class NewWorker extends Component {
         this.dataRef.doc().set(this.state)
     };
 
+    isCheckboxChecked = event => {
+        let isCheckboxChecked = event.target.checked;
+
+        if(isCheckboxChecked){
+           this.setState({disabled: ""})
+        } else {
+            this.setState({disabled: "disabled"})
+        }
+    };
+
     render() {
+
         return (
             <div>
                 <h2>Add new worker:</h2>
@@ -92,11 +104,13 @@ class NewWorker extends Component {
                             type={"checkbox"}
                             defaultChecked={"checked"}
                             label={"Check to send text"}
+                            onChange={this.isCheckboxChecked}
                         />
 
                         <Textarea
                             name={"birthdayMessage"}
                             value={this.state.birthdayMessage}
+                            disabled={this.state.disabled}
                             onChange={this.handleChange}
                             placeholder={"BD congratulation text"}
                             cols="60"
@@ -117,7 +131,7 @@ class NewWorker extends Component {
 
                         <InputField
                             type={"checkbox"}
-                            defaultChecked={this.props.defaultChecked}
+                            defaultChecked={"checked"}
                             label={"Check to send text"}
                         />
 

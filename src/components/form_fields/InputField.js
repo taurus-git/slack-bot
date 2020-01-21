@@ -45,5 +45,4 @@ InputField.propTypes = {
     onChange: PropTypes.func,
 };
 
-
 export default InputField;
