@@ -17,36 +17,33 @@ class NewWorker extends Component {
             anniversaryMessage: '',
         };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-
         this.dataRef = database.collection('/workers');
     }
 
-    handleChange(event) {
+    handleChange = event => {
         this.setState({
             [event.target.name]: event.target.value
         });
-    }
 
-    handleDateChange(event) {
+    };
+
+    handleDateChange = event => {
         event.preventDefault();
         const timestamp = new Date(event.target.value);
 
         this.setState({
             [event.target.name]: timestamp
         })
-    }
+    };
 
-    sendDateInString(date) {
+    sendDateInString = date => {
         let dateString = date;
-    }
+    };
 
-    handleSubmit(event) {
+    handleSubmit = event => {
         event.preventDefault();
         this.dataRef.doc().set(this.state)
-    }
+    };
 
     render() {
         return (
@@ -94,7 +91,7 @@ class NewWorker extends Component {
                         <InputField
                             type={"checkbox"}
                             defaultChecked={"checked"}
-                            label={"Check to send this text"}
+                            label={"Check to send text"}
                         />
 
                         <Textarea
@@ -120,8 +117,8 @@ class NewWorker extends Component {
 
                         <InputField
                             type={"checkbox"}
-                            defaultChecked={"checked"}
-                            label={"Check to send this text"}
+                            defaultChecked={this.props.defaultChecked}
+                            label={"Check to send text"}
                         />
 
                         <Textarea
