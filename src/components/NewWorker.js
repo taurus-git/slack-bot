@@ -12,7 +12,7 @@ class NewWorker extends Component {
             name: '',
             surname: '',
             birthDayDate: '',
-            firstWorkingDay: '',
+            firstWorkDay: '',
             birthdayMessage: '',
             anniversaryMessage: '',
         };
@@ -108,9 +108,9 @@ class NewWorker extends Component {
                         <legend>Worker's First Day at Hyperion:</legend>
 
                         <InputField
-                            name={"firstWorkingDay"}
+                            name={"firstWorkDay"}
                             type="date"
-                            value={this.sendDateInString(this.state.firstWorkingDay)}
+                            value={this.sendDateInString(this.state.firstWorkDay)}
                             onChange={this.handleDateChange}
                             label={"Check date and month"}
                         />
