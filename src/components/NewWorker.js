@@ -11,7 +11,7 @@ class NewWorker extends Component {
             username: '',
             name: '',
             surname: '',
-            bday: '',
+            birthDayDate: '',
             firstWorkingDay: '',
             birthdayMessage: '',
             anniversaryMessage: '',
@@ -81,9 +81,9 @@ class NewWorker extends Component {
                     <fieldset>
                         <legend>Worker's Birth Day date:</legend>
                         <InputField
-                            name={"bday"}
+                            name={"birthDayDate"}
                             type={"date"}
-                            value={this.sendDateInString(this.state.bday)}
+                            value={this.sendDateInString(this.state.birthDayDate)}
                             onChange={this.handleDateChange}
                             label={"Check date and month"}
                         />
