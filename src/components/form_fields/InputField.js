@@ -2,6 +2,18 @@ import React, {Component} from 'react';
 import {PropTypes} from 'react';
 
 class InputField extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            name: '',
+            type: '',
+            value: '',
+            placeholder: '',
+            onChange: '',
+            defaultChecked: "checked",
+            label: '',
+        }
+    }
 
     render() {
         const {name, type, value, placeholder, onChange, defaultChecked, label} = this.props;
