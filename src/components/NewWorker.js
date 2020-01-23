@@ -15,7 +15,8 @@ class NewWorker extends Component {
             firstWorkDay: '',
             birthdayMessage: '',
             anniversaryMessage: '',
-            disabled: '',
+            sendBirthdayMessage: true,
+            sendAnniversaryMessage: true,
         };
 
         this.dataRef = database.collection('/workers');
@@ -49,11 +50,9 @@ class NewWorker extends Component {
     isCheckboxChecked = event => {
         let isCheckboxChecked = event.target.checked;
 
-        if(isCheckboxChecked){
-           this.setState({disabled: ""})
-        } else {
-            this.setState({disabled: "disabled"})
-        }
+        isCheckboxChecked ?
+            this.setState({[event.target.name]: true}) :
+            this.setState({[event.target.name]: false});
     };
 
     render() {
@@ -101,8 +100,9 @@ class NewWorker extends Component {
                         />
 
                         <InputField
+                            name={"sendBirthdayMessage"}
                             type={"checkbox"}
-                            defaultChecked={"checked"}
+                            sendBirthdayMessage={this.state.sendBirthdayMessage}
                             label={"Check to send text"}
                             onChange={this.isCheckboxChecked}
                         />
@@ -110,7 +110,6 @@ class NewWorker extends Component {
                         <Textarea
                             name={"birthdayMessage"}
                             value={this.state.birthdayMessage}
-                            disabled={this.state.disabled}
                             onChange={this.handleChange}
                             placeholder={"BD congratulation text"}
                             cols="60"
@@ -130,9 +129,11 @@ class NewWorker extends Component {
                         />
 
                         <InputField
+                            name={"sendAnniversaryMessage"}
                             type={"checkbox"}
-                            defaultChecked={"checked"}
+                            sendAnniversaryMessage={this.state.sendAnniversaryMessage}
                             label={"Check to send text"}
+                            onChange={this.isCheckboxChecked}
                         />
 
                         <Textarea

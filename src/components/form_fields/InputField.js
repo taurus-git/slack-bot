@@ -10,27 +10,35 @@ class InputField extends React.Component {
             value: '',
             placeholder: '',
             onChange: '',
-            defaultChecked: "checked",
+            sendBirthdayMessage: '',
+            sendAnniversaryMessage: '',
             label: '',
         }
     }
 
     render() {
-        const {name, type, value, placeholder, onChange, defaultChecked, label} = this.props;
+        const {name, type, value, placeholder, onChange, sendBirthdayMessage, sendAnniversaryMessage, label} = this.props;
 
-        return (
-            <label>{label}
-                <input
-                    name={name}
-                    type={type}
-                    value={value}
-                    placeholder={placeholder}
-                    onChange={onChange}
-                    defaultChecked={defaultChecked}
-                />
-            </label>
-        )
-    }
+        let sendMessage = new Boolean(true);
+        if ( name === "sendBirthdayMessage" ) {
+            sendMessage = sendBirthdayMessage;
+        } else if ( name === "sendAnniversaryMessage" ) {
+            sendMessage = sendAnniversaryMessage;
+        }
+
+            return (
+                <label>{label}
+                    <input
+                        name={name}
+                        type={type}
+                        value={value}
+                        placeholder={placeholder}
+                        onChange={onChange}
+                        checked={sendMessage}
+                    />
+                </label>
+            )
+        }
 }
 
 InputField.defaultProps = {
@@ -43,6 +51,7 @@ InputField.propTypes = {
     type: PropTypes.oneOf(['text', 'date', 'checkbox', 'number', 'password']),
     value: PropTypes.any,
     onChange: PropTypes.func,
+    sendMessage: PropTypes.bool,
 };
 
 export default InputField;
