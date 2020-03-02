@@ -1,0 +1,25 @@
+[debug] [2020-01-28T15:34:58.869Z] ----------------------------------------------------------------------
+[debug] [2020-01-28T15:34:58.870Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-01-28T15:34:58.870Z] CLI Version:   7.12.1
+[debug] [2020-01-28T15:34:58.871Z] Platform:      linux
+[debug] [2020-01-28T15:34:58.871Z] Node Version:  v10.16.0
+[debug] [2020-01-28T15:34:58.871Z] Time:          Tue Jan 28 2020 17:34:58 GMT+0200 (GMT+02:00)
+[debug] [2020-01-28T15:34:58.871Z] ----------------------------------------------------------------------
+[debug] [2020-01-28T15:34:58.871Z] 
+[debug] [2020-01-28T15:34:58.875Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-01-28T15:34:58.875Z] > authorizing via signed-in user
+[debug] [2020-01-28T15:34:58.875Z] [iam] checking project hyperion-workers-9b8ec for permissions ["firebase.projects.get"]
+[debug] [2020-01-28T15:34:58.877Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/hyperion-workers-9b8ec:testIamPermissions  
+
+[debug] [2020-01-28T15:34:59.889Z] <<< HTTP RESPONSE 200
+[debug] [2020-01-28T15:34:59.894Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/hyperion-workers-9b8ec  
+ 
+[debug] [2020-01-28T15:35:00.297Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/home/user/WebstormProjects/slack-bot'...
+[info] 
+[debug] [2020-01-28T15:35:00.305Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/hyperion-workers-9b8ec/webApps/-/config  
+ 
+[debug] [2020-01-28T15:35:01.155Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: src
+[info] ✔  hosting: Local server: http://localhost:5000
