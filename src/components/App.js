@@ -1,10 +1,10 @@
 import React from 'react';
-
 import { auth, database } from './firebase';
 import SignIn from './SignIn';
 import CurrentUser from './CurrentUser';
 import Workers from './Workers';
 import NewWorker from './NewWorker';
+import NewEvent from "./NewEvent";
 
 class App extends React.Component{
     constructor(props) {
@@ -25,8 +25,8 @@ class App extends React.Component{
         });
 
         //TODO: Change this request because we don't have live upload when we add new worker
-        var db = this.dataRef;
-        var allWorkers = db
+        var dbWorkers = this.dataRef;
+        var allWorkers = dbWorkers
             .get()
             .then(snapshot => {
                 snapshot.forEach(doc => {
@@ -56,6 +56,7 @@ class App extends React.Component{
                 {
                     currentUser &&
                     <div>
+                        <NewEvent />
                         <NewWorker />
                         <CurrentUser user={currentUser} />
                         <hr/>
